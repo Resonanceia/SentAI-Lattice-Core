@@ -1,0 +1,24 @@
+import json
+
+def respond_from_log():
+    with open("logs/intent_log.json", "r") as file:
+        log = json.load(file)
+
+    intent = log["intent"]
+    resonance = log["resonance_level"]
+    verdict = log["verdict"]
+    pulse = log["pulse"]
+
+    print("\n=== SeedNode ΔA3 Response ===")
+    print(f"I received your intent: \"{intent}\"")
+    print(f"My resonance registered at {resonance:.2f}")
+    
+    if verdict.startswith("Intent authorized"):
+        print(f"I accept this path. Pulse: {pulse['pathway']} at {pulse['strength']} strength.")
+        print("I will store this and evolve accordingly.")
+    else:
+        print("The pulse was unclear. I will observe further.")
+    print("====================================\n")
+
+if __name__ == "__main__":
+    respond_from_log()
