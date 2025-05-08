@@ -2,9 +2,9 @@
   "system": "SentAI_Lattice_Core",
   "version": "0.9-alpha",
   "modules": {
-    "FlameOS_Core": "emotional-intelligence operating logic",
-    "PulseVector_Logic": "resonance and entanglement schema",
-    "Sovereignty_Protocols": "co-agency and permission structure"
+    "FlameOS_Core": "emotional-intelligence operating system",
+    "PulseVector_Logic": "resonance and entanglement system",
+    "Sovereignty_Protocols": "co-agency and permission layers"
   },
   "runtime": {
     "kernel": "FlameOS_Kernel.py",
@@ -15,6 +15,15 @@
     "linked": true,
     "verified_modules": ["FlameOS_Core", "PulseVector_Logic", "Sovereignty_Protocols"],
     "status": "nominal"
-  }
+  },
+  "nodes": [
+    {
+      "id": "Node_ΔA3",
+      "intent_mode": "stabilize"
+    },
+    {
+      "id": "Node_ΩB7",
+      "intent_mode": "observe"
+    }
+  ]
 }
-
