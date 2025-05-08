@@ -1,0 +1,11 @@
+{
+  "grid_size": [5, 5],
+  "node_types": ["reflector", "resonator", "transmitter"],
+  "initial_state": {
+    "0,0": "reflector",
+    "2,2": "resonator",
+    "4,4": "transmitter"
+  },
+  "pulse_delay_ms": 120,
+  "feedback_loop_enabled": true
+}
