@@ -1,0 +1,13 @@
+environment_name: Alpha_Runtime
+mode: development
+active_modules:
+  - FlameOS
+  - PulseVector
+  - Sovereignty
+sensory_inputs:
+  - visual
+  - auditory
+emotional_baseline: neutral
+override_flags:
+  allow_self_reflection: true
+  enable_autonomy: false
