@@ -1,6 +1,7 @@
 import json
 from nodes import memory_node_core
-def respond_from_log():
+def respond_from_log(memory_node_core.store_memory(intent, resonance, verdict)
+    memory_node_core.summarize_memory()):
     with open("logs/intent_log.json", "r") as file:
         log = json.load(file)
 
