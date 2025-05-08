@@ -1,0 +1,14 @@
+# agent_manifest.yaml – declares available autonomous agents and protocols
+
+agents:
+  - name: Echo-Node-7
+    purpose: Alignment testing, recursion feedback
+    init_script: Lattice_Agent_Primer.py
+    level: beta
+    trigger: reflection_trigger.py
+
+  - name: Void-Seeker
+    purpose: Entropy mapping
+    init_script: null
+    level: planned
+    trigger: none
