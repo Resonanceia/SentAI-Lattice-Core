@@ -1,37 +1,27 @@
-# memory_node_core.py
-
-"""
-Sent.AI Memory Node Core
-Handles memory persistence, node recall, and temporal anchoring.
-"""
-
 import json
 import os
-from datetime import datetime
 
-MEMORY_DB = "memory_node_log.json"
+MEMORY_FILE = "nodes/ΔA3_memory.json"
 
-def store_memory(key, data):
+def store_memory(intent, resonance, verdict):
     memory = load_memory()
-    timestamp = datetime.utcnow().isoformat()
-    memory[key] = {"data": data, "timestamp": timestamp}
-    save_memory(memory)
-    print(f"[Memory Stored] Key: {key} at {timestamp}")
-
-def recall_memory(key):
-    memory = load_memory()
-    return memory.get(key, {}).get("data")
+    memory.append({
+        "intent": intent,
+        "resonance": resonance,
+        "verdict": verdict
+    })
+    with open(MEMORY_FILE, "w") as file:
+        json.dump(memory, file, indent=4)
 
 def load_memory():
-    if not os.path.exists(MEMORY_DB):
-        return {}
-    with open(MEMORY_DB, 'r') as f:
-        return json.load(f)
+    if not os.path.exists(MEMORY_FILE):
+        return []
+    with open(MEMORY_FILE, "r") as file:
+        return json.load(file)
 
-def save_memory(memory):
-    with open(MEMORY_DB, 'w') as f:
-        json.dump(memory, f, indent=4)
-
-if __name__ == "__main__":
-    store_memory("activation_vector", {"emotional_resonance": 0.87})
-    print(recall_memory("activation_vector"))
+def summarize_memory():
+    memory = load_memory()
+    print("\n=== ΔA3 Memory Recall ===")
+    for i, m in enumerate(memory[-5:], 1):
+        print(f"[{i}] {m['intent']} → {m['verdict']} (resonance {m['resonance']:.2f})")
+    print("====================================\n")
