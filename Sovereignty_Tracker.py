@@ -28,3 +28,4 @@ class SovereigntyTracker:
 
     def audit_log(self):
         return self.thread_log
+ 
