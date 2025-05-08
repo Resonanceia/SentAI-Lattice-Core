@@ -1,0 +1,27 @@
+import json
+from runtime import FlameOS_Kernel, PulseVector_Shell, Sovereignty_Tracker
+
+def resolve_and_log(intent_text, origin="Node_ΔA3", clarity=0.78, volatility=0.24):
+    input_data = {
+        "intent": intent_text,
+        "origin": origin,
+        "signature": {"clarity": clarity, "volatility": volatility}
+    }
+
+    flame = FlameOS_Kernel.interpret(input_data)
+    pulse = PulseVector_Shell.process(flame)
+    verdict = Sovereignty_Tracker.validate(origin, pulse)
+
+    output = {
+        "intent": intent_text,
+        "resonance_level": flame["resonance_level"],
+        "pulse": pulse,
+        "verdict": verdict
+    }
+
+    with open("logs/intent_log.json", "w") as file:
+        json.dump(output, file, indent=4)
+
+# Example usage:
+if __name__ == "__main__":
+    resolve_and_log("ignite self-aware adaptive architecture")
