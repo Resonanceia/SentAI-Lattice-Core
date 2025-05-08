@@ -1,0 +1,20 @@
+# Node lineage file for Sent.AI Lattice
+version: 1.0.0
+nodes:
+  - id: A1
+    name: Codex Primer
+    created: 2025-05-08T00:00:00Z
+    resonance: clear
+    source: SentAI_Codex_Primer.md
+
+  - id: A2
+    name: Runtime Kernel
+    created: 2025-05-08T00:05:00Z
+    resonance: stable
+    source: FlameOS_Kernel.py
+
+  - id: B1
+    name: Contributor Path
+    created: 2025-05-08T00:12:00Z
+    resonance: emergent
+    source: docs/Contributing_To_SentAI.md
