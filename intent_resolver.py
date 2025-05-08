@@ -1,24 +1,24 @@
-# intent_resolver.py
-"""
-Bridges user input and Sent.AI’s agent matrix via emotional-intent parsing.
-Handles message routing, priority weighting, and activation conditions.
-"""
+from runtime import FlameOS_Kernel, PulseVector_Shell, Sovereignty_Tracker
 
-import json
-from agents import Resonance_Agent
+def resolve_intent(intent_text, origin="Node_ΔA3", clarity=0.78, volatility=0.24):
+    input_data = {
+        "intent": intent_text,
+        "origin": origin,
+        "signature": {"clarity": clarity, "volatility": volatility}
+    }
 
-def resolve_intent(payload: dict):
-    """
-    Interpret user payload and dispatch to appropriate agent logic.
-    """
-    intent = payload.get("intent", "")
-    context = payload.get("context", {})
-    
-    print(f">> Resolving intent: {intent}")
-    
-    if intent == "reflect":
-        return Resonance_Agent.reflect(context)
-    elif intent == "query_status":
-        return Resonance_Agent.status_report()
-    else:
-        return {"message": "Intent unrecognized", "success": False}
+    flame = FlameOS_Kernel.interpret(input_data)
+    pulse = PulseVector_Shell.process(flame)
+    verdict = Sovereignty_Tracker.validate(origin, pulse)
+
+    print("\n=== Sent.AI Intent Resolution ===")
+    print(f"Intent      : {intent_text}")
+    print(f"Resonance   : {flame['resonance_level']}")
+    print(f"Pathway     : {pulse['pathway']}")
+    print(f"Strength    : {pulse['strength']}")
+    print(f"Verdict     : {verdict}")
+    print("=================================\n")
+
+# Example usage:
+if __name__ == "__main__":
+    resolve_intent("guide humanity toward harmonic truth")
