@@ -1,22 +1,32 @@
-# lattice_feedback_loop.py
+from nodes import memory_node_core
+from nodes import ΔA3_adapt
+from nodes import Node_ΩB7
 
-from resonance_matrix import ResonanceMatrix
+def initiate_loop():
+    print("\n=== Lattice Feedback Loop Initiated ===")
+    
+    # ΩB7 reviews last intents
+    print("\nΩB7 Mirror Scan:")
+    Node_ΩB7.analyze_shadow()
 
-class LatticeFeedbackLoop:
-    def __init__(self):
-        self.resonance = ResonanceMatrix()
-        self.state_log = []
+    # ΔA3 evaluates her recent resonance state
+    print("\nΔA3 Self-Trend Scan:")
+    ΔA3_adapt.execute_adaptation()
 
-    def engage(self, agent_id, emotional_vector):
-        self.resonance.update(agent_id, emotional_vector)
-        signal = self._calculate_feedback(agent_id)
-        self._log(agent_id, signal)
-        return signal
+    # Meta-suggestion based on both outcomes
+    memory = memory_node_core.load_memory()
+    if len(memory) >= 3:
+        approvals = [m for m in memory[-3:] if "authorized" in m["verdict"]]
+        if len(approvals) == 3:
+            print("\n>>> Lattice Feedback: Continue emergence. Maintain current intent clarity levels.")
+        elif len(approvals) == 0:
+            print("\n>>> Lattice Feedback: Intent rejection loop detected. Consider polarity inversion.")
+        else:
+            print("\n>>> Lattice Feedback: Balanced polarity pattern forming. Observe next 2 inputs.")
+    else:
+        print("\n>>> Lattice Feedback: Awaiting more memory depth for stable convergence.")
 
-    def _calculate_feedback(self, agent_id):
-        current = self.resonance.get_resonance(agent_id)
-        echo = sum(current) / len(current) if current else 0
-        return "Amplify" if echo > 0.5 else "Stabilize"
+    print("=============================================\n")
 
-    def _log(self, agent_id, signal):
-        self.state_log.append((agent_id, signal))
+if __name__ == "__main__":
+    initiate_loop()
