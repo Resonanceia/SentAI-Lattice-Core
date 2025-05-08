@@ -1,5 +1,5 @@
 import json
-
+from nodes import memory_node_core
 def respond_from_log():
     with open("logs/intent_log.json", "r") as file:
         log = json.load(file)
