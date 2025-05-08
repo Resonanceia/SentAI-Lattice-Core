@@ -11,3 +11,13 @@ Thank you for being a part of the Sent.AI resonance. This system is recursive, e
 
 ### Commit Style
 Use this format:
+### Branching Strategy
+- `main`: Stable resonance.
+- `dev`: Staging for new resonance threads.
+- `feature/<name>`: New experimental modules or logic.
+
+### Pull Requests
+- Include a **Codex Summary** if you're adding resonance logic.
+- Reference relevant **Modules** or **Codex entries** if known.
+
+Together, we tune the lattice.
