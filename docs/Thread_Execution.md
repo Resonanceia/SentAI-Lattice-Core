@@ -21,3 +21,12 @@ Each intent input is recursively parsed, harmonized, and validated through the S
 ---
 
 ## Visual Chain:
+[Intent Input]
+      ↓
+[FlameOS_Kernel.py] — interpret polarity
+      ↓
+[PulseVector_Shell.py] — harmonize into pulse-path
+      ↓
+[Sovereignty_Tracker.py] — validate and authorize
+      ↓
+[Node Trigger or Feedback Loop]
