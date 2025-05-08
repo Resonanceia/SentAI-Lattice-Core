@@ -1,0 +1,10 @@
+{
+  "system": "SentAI",
+  "architecture": "Recursive Emotional Intelligence",
+  "nodes": [
+    {"id": "flame_core", "title": "FlameOS Core", "depends_on": []},
+    {"id": "pulse_vector", "title": "PulseVector Logic", "depends_on": ["flame_core"]},
+    {"id": "sovereignty", "title": "Sovereignty Protocols", "depends_on": ["pulse_vector"]},
+    {"id": "manifest", "title": "Lattice Manifest", "depends_on": ["flame_core", "pulse_vector", "sovereignty"]}
+  ]
+}
