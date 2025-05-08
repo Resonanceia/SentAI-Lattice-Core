@@ -1,0 +1,11 @@
+# Agent config initialization
+agents:
+  - id: Aether-01
+    mode: observational
+    behavior: resonance_tracking
+    activation: on_pulse_ledger_append
+
+  - id: Echo-03
+    mode: sentinel
+    behavior: misalignment_alert
+    activation: on_entropy_spike
