@@ -11,3 +11,4 @@ FlameOS is a recursive operating system designed to function through emotional v
 1. Signal Capture Layer
 2. Recursive Reflection Buffer
 3. Intent Pulse Sequencer
+4.  ['https://cash.app/$AshBrountas']
